@@ -1,21 +1,13 @@
 import { put, takeLatest } from "redux-saga/effects";
 import * as actions from "components/Question/actions";
+import { fetchQuestionsSucceeded } from "components/Question/actionCreators";
 
-function* fetchQuestions() {
-  // Call api
-  yield put({
-    type: actions.QUESTIONS_FETCH_SUCCEEDED,
-    payload: {
-      items: [
-        {
-          published_at: "2015-05-27T21:22:26.431000+00:00",
-          url: "/questions/1"
-        }
-      ]
-    }
-  });
+export function* fetchQuestions() {
+  yield put(fetchQuestionsSucceeded());
 }
 
-export default function* sagas() {
+function* sagas() {
   yield takeLatest(actions.QUESTIONS_FETCH_REQUESTED, fetchQuestions);
 }
+
+export default sagas;

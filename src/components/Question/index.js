@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchQuestions } from "components/Question/actionCreators";
+import { fetchQuestionsRequested } from "components/Question/actionCreators";
 import template from "./template";
 
 const mapStatetoProps = state => {
@@ -11,7 +11,7 @@ const mapStatetoProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchQuestions: () => {
-      dispatch(fetchQuestions());
+      dispatch(fetchQuestionsRequested());
     }
   };
 };

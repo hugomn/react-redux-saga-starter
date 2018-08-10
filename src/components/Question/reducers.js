@@ -3,7 +3,7 @@ import {
   QUESTIONS_FETCH_SUCCEEDED
 } from "components/Question/actions";
 
-const initialState = {
+export const initialState = {
   items: []
 };
 

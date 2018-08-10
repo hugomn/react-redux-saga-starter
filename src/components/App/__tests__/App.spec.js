@@ -1,5 +1,5 @@
 import React from "react";
-import App from "components/App/template";
+import App from "components/App";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { mount } from "enzyme";
@@ -8,7 +8,7 @@ const initialState = {
   questions: {}
 };
 
-describe("App container", () => {
+describe("App template", () => {
   const mockInit = jest.fn();
   const store = configureStore()(initialState);
   let wrapper = mount(
