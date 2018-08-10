@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
-import reducers from "./reducers";
+import { createBrowserHistory } from "history";
 import createSagaMiddleware from "redux-saga";
 import {
   ConnectedRouter,
   connectRouter,
   routerMiddleware
 } from "connected-react-router";
-import { createBrowserHistory } from "history";
-import sagas from "./sagas";
-import "./index.css";
+import reducers from "reducers";
+import sagas from "sagas";
+import App from "components/App";
+import "index.css";
 
 const sagaMiddleware = createSagaMiddleware();
 const history = createBrowserHistory();

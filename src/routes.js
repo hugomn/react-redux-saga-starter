@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import QuestionList from "components/QuestionList";
+import Question from "components/Question";
 
 export default class Routes extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class Routes extends Component {
       <div>
         <Router>
           <Switch>
-            <Route exact path="/" component={QuestionList} />
+            <Route exact path="/" component={Question} />
           </Switch>
         </Router>
       </div>

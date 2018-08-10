@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { reducer as questionSaga } from "sagas/question/reducer";
+import questionReducer from "components/Question/reducers";
 
 const reducers = combineReducers({
-  questionSaga
+  questions: questionReducer
 });
 
 export default reducers;

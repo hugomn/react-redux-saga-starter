@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class QuestionList extends Component {
   static propTypes = {
     fetchQuestions: PropTypes.func,
-    questions: PropTypes.object
+    questions: PropTypes.array
   };
 
   componentDidMount = () => {
@@ -16,7 +16,7 @@ class QuestionList extends Component {
     return (
       <React.Fragment>
         <h1>Questions</h1>
-        {questions && questions.length}
+        {questions.length}
       </React.Fragment>
     );
   }

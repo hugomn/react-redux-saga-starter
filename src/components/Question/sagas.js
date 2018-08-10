@@ -1,18 +1,12 @@
 import { put, takeLatest } from "redux-saga/effects";
-
-import * as actions from "./actions";
-
-let defaultState = {
-  questions: []
-};
+import * as actions from "components/Question/actions";
 
 function* fetchQuestions() {
   // Call api
   yield put({
     type: actions.QUESTIONS_FETCH_SUCCEEDED,
     payload: {
-      ...defaultState,
-      questions: [
+      items: [
         {
           published_at: "2015-05-27T21:22:26.431000+00:00",
           url: "/questions/1"

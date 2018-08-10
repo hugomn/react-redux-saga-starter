@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import App from "components/App/template";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
@@ -9,22 +8,25 @@ const initialState = {
   questions: {}
 };
 
-const mockStore = configureStore();
-let store;
-
-beforeEach(() => {
-  store = mockStore(initialState);
-});
-
-it("renders without crashing", () => {
-  const div = document.createElement("div");
+describe("App container", () => {
   const mockInit = jest.fn();
+  const store = configureStore()(initialState);
   let wrapper = mount(
     <Provider store={store}>
       <App init={mockInit} />
     </Provider>
   );
-  ReactDOM.render(wrapper, div);
-  ReactDOM.unmountComponentAtNode(div);
-  expect(true).toBeTruthy();
+
+  it("renders main App container correctly", () => {
+    expect(wrapper.find(App)).toHaveLength(1);
+  });
+
+  it("has a main div with 'App' class", () => {
+    expect(
+      wrapper
+        .find("div")
+        .first()
+        .hasClass("App")
+    ).toBeTruthy();
+  });
 });

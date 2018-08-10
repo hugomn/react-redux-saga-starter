@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import { fetchQuestions } from "sagas/question/reducer";
+import { fetchQuestions } from "components/Question/actionCreators";
 import template from "./template";
 
 const mapStatetoProps = state => {
   return {
-    questions: state.questions
+    questions: state.questions.items || []
   };
 };
 
