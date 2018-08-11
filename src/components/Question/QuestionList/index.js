@@ -10,7 +10,7 @@ const mapStatetoProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchQuestions: () => {
+    getQuestions: () => {
       dispatch(fetchQuestionsRequested());
     }
   };

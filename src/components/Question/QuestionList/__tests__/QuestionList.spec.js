@@ -1,23 +1,34 @@
 import React from "react";
-import Question from "components/Question/template";
+import QuestionList from "components/Question/QuestionList/template";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { mount } from "enzyme";
+import { Card } from "semantic-ui-react";
 
-const initialState = {
-  questions: {}
-};
+const initialState = {};
+const mockQuestions = [
+  {
+    url: "/questions/1",
+    question: "First question",
+    choices: []
+  },
+  {
+    url: "/questions/2",
+    question: "Second question",
+    choices: []
+  }
+];
 
 describe("Question template", () => {
   const mockFetchQuestions = jest.fn();
   const store = configureStore()(initialState);
   const props = {
-    fetchQuestions: mockFetchQuestions,
-    questions: []
+    getQuestions: mockFetchQuestions,
+    questions: mockQuestions
   };
   let wrapper = mount(
     <Provider store={store}>
-      <Question {...props} />
+      <QuestionList {...props} />
     </Provider>
   );
 
@@ -27,5 +38,9 @@ describe("Question template", () => {
 
   it("should fetch question after mounted", () => {
     expect(mockFetchQuestions).toBeCalled();
+  });
+
+  it("should render two Cards when we have questions", () => {
+    expect(wrapper.find(Card)).toHaveLength(2);
   });
 });

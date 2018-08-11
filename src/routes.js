@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Question from "components/Question";
+import { Route, Switch } from "react-router-dom";
+import QuestionList from "components/Question/QuestionList";
+import QuestionDetail from "components/Question/QuestionDetail";
 
 export default class Routes extends Component {
   render() {
     return (
       <div>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Question} />
-          </Switch>
-        </Router>
+        <Switch>
+          <Route exact path="/" component={QuestionList} />
+          <Route path="/questions/:id" component={QuestionDetail} />
+        </Switch>
       </div>
     );
   }

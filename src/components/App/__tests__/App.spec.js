@@ -3,6 +3,7 @@ import App from "components/App";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { mount } from "enzyme";
+import { MemoryRouter } from "react-router";
 
 const initialState = {
   questions: {}
@@ -13,7 +14,9 @@ describe("App template", () => {
   const store = configureStore()(initialState);
   let wrapper = mount(
     <Provider store={store}>
-      <App init={mockInit} />
+      <MemoryRouter>
+        <App init={mockInit} />
+      </MemoryRouter>
     </Provider>
   );
 
