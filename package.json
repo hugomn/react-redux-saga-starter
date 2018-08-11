@@ -10,6 +10,7 @@
   "author": "Hugo Nogueira",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
     "material-ui": "^0.20.0",
@@ -32,6 +33,7 @@
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
     "redux-mock-store": "^1.5.3",
+    "redux-saga-mock": "^1.2.0",
     "redux-saga-testing": "^1.0.5"
   }
 }

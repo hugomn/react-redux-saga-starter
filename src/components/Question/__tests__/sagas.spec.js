@@ -1,8 +1,9 @@
 import sagas, { fetchQuestions } from "components/Question/sagas";
-import { fetchQuestionsSucceeded } from "components/Question/actionCreators";
-import { put, takeLatest } from "redux-saga/effects";
+import { fetchQuestionsFailed } from "components/Question/actionCreators";
+import { call, takeLatest, put } from "redux-saga/effects";
 import * as actions from "components/Question/actions";
 import sagaHelper from "redux-saga-testing";
+import api from "utils/api";
 
 describe("Question sagas", () => {
   let it = sagaHelper(sagas());
@@ -13,7 +14,11 @@ describe("Question sagas", () => {
   });
 
   it = sagaHelper(fetchQuestions());
-  it("should fetch questions with success", result => {
-    expect(result).toEqual(put(fetchQuestionsSucceeded()));
+  it("should call the api", result => {
+    expect(result).toEqual(call(api.getQuestions));
+  });
+
+  it("should call the fetch failed action", result => {
+    expect(result).toEqual(put(fetchQuestionsFailed()));
   });
 });
