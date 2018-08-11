@@ -67,7 +67,6 @@ class QuestionDetail extends Component {
         <React.Fragment>
           <Container>
             <Header as="h1">Questions detail</Header>
-
             <Header as="h2">Question: {activeQuestion.question}</Header>
             <Divider hidden />
             <Table celled definition selectable>
