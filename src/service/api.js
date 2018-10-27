@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://private-anon-df7d89436c-pollsapi.apiary-proxy.com";
+const url = "https://polls.apiblueprint.org";
 
 const api = {
   getQuestion: function(id) {
