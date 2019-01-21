@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import questionReducer from "components/Question/reducers";
+import { connectRouter } from 'connected-react-router'
 
-const reducers = combineReducers({
+export default (history) => combineReducers({
+  router: connectRouter(history),
   questions: questionReducer
 });
-
-export default reducers;
