@@ -2,11 +2,11 @@
 
 [![codecov](https://codecov.io/gh/hugomn/polls-saga/branch/master/graph/badge.svg)](https://codecov.io/gh/hugomn/polls-saga) [![CircleCI](https://circleci.com/gh/hugomn/react-redux-saga-starter.svg?style=svg)](https://circleci.com/gh/hugomn/react-redux-saga-starter)
 
-**react-redux-saga-starter** is a boilerplate aplication made with React + Redux + Sagas.
+**react-redux-saga-starter** is a poll aplication made with React + Redux + Sagas.
 
 ## Getting started
 
-**Poll-app **requires **React 0.16 or later.**
+**Poll-app** requires **React 0.16 or later.**
 
 Clone the repository:
 
