@@ -14,7 +14,7 @@ import App from "./components/App";
 import "./index.css";
 
 const sagaMiddleware = createSagaMiddleware();
-const history = createBrowserHistory();
+const history = createBrowserHistory({ basename: '/react-redux-saga-starter' });
 
 let composeEnhancers = compose;
 
