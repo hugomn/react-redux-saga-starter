@@ -9,7 +9,7 @@ jobs:
       ignore:
         - gh-pages
     docker:
-      - image: circleci/node:11.5.0
+      - image: webpackcontrib/circleci-jdk9-node8
 
     working_directory: ~/repo
     environment:
@@ -26,7 +26,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm ci
+      - run: npm install
 
       - save_cache:
           paths:
@@ -66,22 +66,28 @@ jobs:
       - run:
           name: Deploying test results to codecov.io
           command: bash <(curl -s https://codecov.io/bash)
-  sonatype:
-    branches:
-      ignore:
-        - gh-pages
-    docker:
-      - image: webpackcontrib/circleci-jdk9-node8
 
-    working_directory: ~/app
-    resource_class: large
-
-    steps:
-      - attach_workspace:
-          at: ~/app
       - run:
           name: download Sonatype CLI
           command: wget https://download.sonatype.com/clm/scanner/latest.jar -O nexus-iq-cli.jar
+
+
+#   sonatype:
+#     branches:
+#       ignore:
+#         - gh-pages
+#     docker:
+#       - image: webpackcontrib/circleci-jdk9-node8
+
+#     working_directory: ~/app
+#     resource_class: large
+
+#     steps:
+#       - attach_workspace:
+#           at: ~/app
+#       - run:
+#           name: download Sonatype CLI
+#           command: wget https://download.sonatype.com/clm/scanner/latest.jar -O nexus-iq-cli.jar
 # workflows:
 #   version: 2
 #   build_and_test:
