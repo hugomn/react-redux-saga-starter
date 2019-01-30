@@ -96,28 +96,4 @@ jobs:
           path: sonatype_links.json
       - store_artifacts:
           path: sonatype_report.json
-
-
-#   sonatype:
-#     branches:
-#       ignore:
-#         - gh-pages
-#     docker:
-#       - image: webpackcontrib/circleci-jdk9-node8
-
-#     working_directory: ~/app
-#     resource_class: large
-
-#     steps:
-#       - attach_workspace:
-#           at: ~/app
-#       - run:
-#           name: download Sonatype CLI
-#           command: wget https://download.sonatype.com/clm/scanner/latest.jar -O nexus-iq-cli.jar
-# workflows:
-#   version: 2
-#   build_and_test:
-#     jobs:
-#       - build
-#       - sonatype
        
