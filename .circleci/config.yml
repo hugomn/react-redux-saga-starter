@@ -78,8 +78,14 @@ jobs:
 
     steps:
       - attach_workspace:
-        at: ~/app
+          at: ~/app
       - run:
-        name: download Sonatype CLI
-        command: wget https://download.sonatype.com/clm/scanner/latest.jar -O nexus-iq-cli.jar
+          name: download Sonatype CLI
+          command: wget https://download.sonatype.com/clm/scanner/latest.jar -O nexus-iq-cli.jar
+# workflows:
+#   version: 2
+#   build_and_test:
+#     jobs:
+#       - build
+#       - sonatype
        
