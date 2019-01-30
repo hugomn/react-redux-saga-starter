@@ -27,8 +27,8 @@
     "validator": "^10.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "NODE_PATH=./src react-scripts start",
+    "build": "NODE_PATH=./src react-scripts build",
     "test": "NODE_PATH=./src react-scripts test --env=jsdom --coverage --collectCoverageFrom=src/components/**/*{js,jsx} ",
     "eject": "react-scripts eject"
   },
