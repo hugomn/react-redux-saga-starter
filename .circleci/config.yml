@@ -71,6 +71,32 @@ jobs:
           name: download Sonatype CLI
           command: wget https://download.sonatype.com/clm/scanner/latest.jar -O nexus-iq-cli.jar
 
+      - run:
+          name: create Sonatype report
+          command: |
+            java -jar nexus-iq-cli.jar \
+            -i $SONATYPE_NEXUS_IQ_APPLICATION_NAME \
+            -s $SONATYPE_NEXUS_IQ_SERVER_URL \
+            -a $SONATYPE_NEXUS_IQ_USERNAME:$SONATYPE_NEXUS_IQ_PASSWORD \
+            --stage Release \
+            --result-file sonatype_links.json \
+            node_modules
+          environment:
+            SONATYPE_NEXUS_IQ_APPLICATION_NAME: starter-web
+      - run:
+          name: install jq
+          command: |
+            sudo apt-get -y install jq
+      - run:
+          name: download reports
+          command: |
+            reportDataUrl=$(jq -r '.reportDataUrl' sonatype_links.json)
+            curl -u admin:admin123 -X GET "$reportDataUrl" > sonatype_report.json
+      - store_artifacts:
+          path: sonatype_links.json
+      - store_artifacts:
+          path: sonatype_report.json
+
 
 #   sonatype:
 #     branches:
