@@ -91,6 +91,7 @@ jobs:
           name: download reports
           command: |
             reportDataUrl=$(jq -r '.reportDataUrl' sonatype_links.json)
+            cat sonatype_links.json
             curl -u admin:admin123 -X GET "$reportDataUrl" > sonatype_report.json
       - store_artifacts:
           path: sonatype_links.json
