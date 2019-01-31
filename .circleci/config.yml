@@ -78,7 +78,7 @@ jobs:
             -i $SONATYPE_NEXUS_IQ_APPLICATION_NAME \
             -s $SONATYPE_NEXUS_IQ_SERVER_URL \
             -a $SONATYPE_NEXUS_IQ_USERNAME:$SONATYPE_NEXUS_IQ_PASSWORD \
-            --stage Release \
+            --stage Build \
             -w \
             --result-file sonatype_links.json \
             node_modules
