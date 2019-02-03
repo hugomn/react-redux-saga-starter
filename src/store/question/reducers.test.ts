@@ -1,8 +1,5 @@
-import reducer, { initialState } from "components/Question/reducers";
-import {
-  QUESTIONS_FETCH_REQUESTED,
-  QUESTIONS_FETCH_SUCCEEDED
-} from "components/Question/actions";
+import { questionsReducer, initialState } from "./reducers";
+import { QuestionsActionTypes } from "./types";
 
 const mockItems = [
   {
@@ -19,20 +16,20 @@ const mockItems = [
 
 describe("Question reducer", () => {
   it("should call fetch requested action without changing the state", () => {
-    const state = reducer(initialState, { type: QUESTIONS_FETCH_REQUESTED });
+    const state = questionsReducer(initialState, { type: QuestionsActionTypes.QUESTIONS_FETCH_REQUESTED });
     expect(state).toEqual(initialState);
   });
 
   it("should update the state with new questions when fetch succeeded", () => {
-    const state = reducer(initialState, {
-      type: QUESTIONS_FETCH_SUCCEEDED,
-      payload: { items: mockItems }
+    const state = questionsReducer(initialState, {
+      type: QuestionsActionTypes.QUESTIONS_FETCH_SUCCEEDED,
+      payload: mockItems
     });
     expect(state).toEqual({ ...initialState, items: mockItems });
   });
 
   it("should return the initial state in case of an unmapped action type", () => {
-    const state = reducer(initialState, {
+    const state = questionsReducer(initialState, {
       type: "UNKNOWN",
       payload: { items: "xyz" }
     });
@@ -40,7 +37,7 @@ describe("Question reducer", () => {
   });
 
   it("should return the initial state in case any action is passed", () => {
-    const state = reducer(undefined, {});
+    const state = questionsReducer(undefined, { type: null });
     expect(state).toEqual(initialState);
   });
 });

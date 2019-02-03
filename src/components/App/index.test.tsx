@@ -1,5 +1,5 @@
-import React from "react";
-import App from "components/App";
+import * as React from 'react'
+import App from ".";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { mount } from "enzyme";

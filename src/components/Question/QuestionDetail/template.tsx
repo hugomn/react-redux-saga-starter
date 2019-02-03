@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import * as React from 'react'
+import { Choice } from "../../../store/choice/types";
+import { Question } from "../../../store/question/types";
+import { RouteComponentProps } from 'react-router'
 import {
   Button,
   Divider,
@@ -12,31 +14,36 @@ import {
   Table
 } from "semantic-ui-react";
 
-class QuestionDetail extends Component {
-  static propTypes = {
-    activeQuestion: PropTypes.object,
-    choiceVote: PropTypes.func,
-    getQuestion: PropTypes.func,
-    match: PropTypes.object,
-    selectChoice: PropTypes.func
-  };
+interface Props {
+  activeQuestion?: Question
+  choiceVote: any
+  getQuestion: any
+  selectChoice: any
+}
+
+interface RouteProps {
+  id: string
+} 
+
+class QuestionDetail extends React.Component<Props & RouteComponentProps<RouteProps>> {
 
   componentDidMount() {
     this.props.getQuestion(this.props.match.params.id);
   }
 
-  handleChoiceClick = choice => {
+  handleChoiceClick = (choice: Choice) => {
     this.props.selectChoice(choice);
   };
 
   handleVoteSubmit = () => {
-    this.props.choiceVote(this.props.activeQuestion.selectedChoice);
+    this.props.choiceVote(this.props.activeQuestion!.selectedChoice);
   };
 
-  renderChoice = choice => {
+  renderChoice = (choice: Choice) => {
     const { activeQuestion } = this.props;
-    const { selectedChoice = {} } = activeQuestion;
-    const selected = choice.url === selectedChoice.url;
+    const { selectedChoice } = activeQuestion!;
+    const selected = selectedChoice && choice.url === selectedChoice.url;
+    console.log('[dev:hugo] selectedChoice', selectedChoice);
     return (
       <Table.Row
         key={choice.url}
@@ -50,7 +57,7 @@ class QuestionDetail extends Component {
         <Table.Cell>{choice.votes} votes</Table.Cell>
         <Table.Cell>
           <Progress
-            total={activeQuestion.total}
+            total={activeQuestion!.total}
             value={choice.votes}
             precision={0}
             indicating

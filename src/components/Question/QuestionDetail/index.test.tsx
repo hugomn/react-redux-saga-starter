@@ -1,5 +1,5 @@
-import React from "react";
-import QuestionDetail from "components/Question/QuestionDetail/template";
+import * as React from 'react'
+import QuestionDetail from "./template";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { mount } from "enzyme";

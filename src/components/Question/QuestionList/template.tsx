@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import * as React from 'react'
 import { Grid, Container, Header, Loader } from "semantic-ui-react";
-import QuestionCard from "components/Question/QuestionCard";
+import QuestionCard from "../QuestionCard";
+import { Question } from "../../../store/question/types";
 
-class QuestionList extends Component {
-  static propTypes = {
-    getQuestions: PropTypes.func,
-    questions: PropTypes.array
-  };
+interface Props {
+  getQuestions: any
+  questions: Question[]
+}
 
+class QuestionList extends React.Component<Props> {
   componentDidMount() {
     this.props.getQuestions();
   }

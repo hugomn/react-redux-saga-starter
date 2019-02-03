@@ -3,12 +3,12 @@ import sagas, {
   fetchQuestions,
   voteQuestion,
   showDetail
-} from "components/Question/sagas";
-import { fetchQuestionsFailed } from "components/Question/actionCreators";
+} from "./sagas";
+import { fetchQuestionsFailed } from "./actions";
 import { all, call, takeLatest, put } from "redux-saga/effects";
-import * as actions from "components/Question/actions";
+import { QuestionsActionTypes as actions } from "./types";
 import sagaHelper from "redux-saga-testing";
-import api from "service/api";
+import api from "../../service/api";
 
 describe("Question sagas", () => {
   let it = sagaHelper(sagas());
@@ -29,6 +29,6 @@ describe("Question sagas", () => {
   });
 
   it("should call the fetch failed action", result => {
-    expect(result).toEqual(put(fetchQuestionsFailed()));
+    expect(result.payload.action.type).toEqual(actions.QUESTIONS_FETCH_FAILED);
   });
 });

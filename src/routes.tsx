@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import QuestionList from "components/Question/QuestionList";
-import QuestionDetail from "components/Question/QuestionDetail";
+import QuestionList from "./components/Question/QuestionList";
+import QuestionDetail from "./components/Question/QuestionDetail";
 
 export default class Routes extends Component {
   render() {

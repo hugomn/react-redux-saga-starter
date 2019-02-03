@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import * as React from 'react'
 import { Card } from "semantic-ui-react";
+import { Question } from "../../../store/question/types";
 
-class QuestionCard extends Component {
-  static propTypes = {
-    question: PropTypes.object,
-    showDetail: PropTypes.func
-  };
+interface Props {
+  question: Question
+  showDetail: any
+}
 
+class QuestionCard extends React.Component<Props> {
   handleClick = () => {
     this.props.showDetail(this.props.question);
   };

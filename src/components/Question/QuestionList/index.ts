@@ -1,14 +1,16 @@
 import { connect } from "react-redux";
-import { fetchQuestionsRequested } from "components/Question/actionCreators";
+import { Dispatch } from 'redux';
+import { fetchQuestionsRequested } from "../../../store/question/actions";
 import template from "./template";
+import { ApplicationState } from "../../../store"
 
-const mapStatetoProps = state => {
+const mapStateToProps = (state: ApplicationState) => {
   return {
     questions: state.questions.items || []
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     getQuestions: () => {
       dispatch(fetchQuestionsRequested());
@@ -17,6 +19,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStatetoProps,
+  mapStateToProps,
   mapDispatchToProps
 )(template);

@@ -1,37 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { createBrowserHistory } from "history";
 import createSagaMiddleware from "redux-saga";
-import {
-  ConnectedRouter,
-  routerMiddleware
-} from "connected-react-router";
-import createRootReducer from './reducers'
-import sagas from "./sagas";
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { ConnectedRouter, routerMiddleware } from "connected-react-router";
 import App from "./components/App";
+import { createRootReducer, rootSaga } from './store';
 import "./index.css";
 
+const composeEnhancers = composeWithDevTools({});
 const sagaMiddleware = createSagaMiddleware();
 const history = createBrowserHistory({ basename: '/react-redux-saga-starter' });
 
-let composeEnhancers = compose;
-
-if (process.env.NODE_ENV === "development") {
-  const composeWithDevToolsExtension =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-  if (typeof composeWithDevToolsExtension === "function") {
-    composeEnhancers = composeWithDevToolsExtension;
-  }
-}
-
+const initialState = window.initialReduxState
 const store = createStore(
   createRootReducer(history),
+  initialState,
   composeEnhancers(applyMiddleware(routerMiddleware(history), sagaMiddleware))
 );
 
-sagaMiddleware.run(sagas);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

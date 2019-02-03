@@ -1,5 +1,5 @@
 import React from "react";
-import QuestionCard from "components/Question/QuestionCard/template";
+import QuestionCard from "./template";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 import { mount } from "enzyme";
