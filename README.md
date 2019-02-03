@@ -6,12 +6,12 @@
 
 ## Getting started
 
-**Poll-app** requires **React 0.16 or later.**
+**React-redux-saga-starter** requires **React 0.16 or later.**
 
 Clone the repository:
 
 ```
-git clone git@github.com:hugomn/polls-saga.git
+git clone git@github.com:hugomn/react-redux-saga-starter.git
 ```
 
 Install the dependencies:
@@ -36,9 +36,10 @@ npm test
 
 ## ToDos
 
-1. Cover all reducers and sagas to have 100% of coverage
-2. Display error and success messages after voting
-3. Create a form to submit new questions
+1. ~~Migrate to typescript~~
+2. Cover all reducers and sagas to have 100% of coverage
+3. Display error and success messages after voting
+4. Create a form to submit new questions
 
 ## Credits
 
@@ -46,4 +47,4 @@ Created by [@hugomn](https://www.hugomagalhaes.com).
 
 ## License
 
-Polls-saga is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+React-Redux-Saga-Starter is released under the [MIT License](http://www.opensource.org/licenses/MIT).
