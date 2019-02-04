@@ -1,6 +1,6 @@
 # React-Redux-Saga-Starter
 
-[![codecov](https://codecov.io/gh/hugomn/polls-saga/branch/master/graph/badge.svg)](https://codecov.io/gh/hugomn/polls-saga) [![CircleCI](https://circleci.com/gh/hugomn/react-redux-saga-starter.svg?style=svg)](https://circleci.com/gh/hugomn/react-redux-saga-starter)
+[![codecov](https://codecov.io/gh/hugomn/react-redux-saga-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/hugomn/react-redux-saga-starter) [![CircleCI](https://circleci.com/gh/hugomn/react-redux-saga-starter.svg?style=svg)](https://circleci.com/gh/hugomn/react-redux-saga-starter)
 
 **react-redux-saga-starter** is a poll aplication made with React + Redux + Sagas.
 
