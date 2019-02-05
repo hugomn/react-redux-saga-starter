@@ -6,6 +6,13 @@ import questionsSaga from './question/sagas'
 import { questionsReducer } from './question/reducers'
 import { QuestionsState } from './question/types'
 
+// A nice helper to tell us if we're on the server
+export const isServer = !(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+);
+
 // The top-level state object
 export interface ApplicationState {
   router: RouterState
@@ -31,3 +38,9 @@ export const createRootReducer = (history: History) => combineReducers<Applicati
 export function* rootSaga() {
   yield all([fork(questionsSaga)])
 }
+
+const createStore = () => {
+  return {};
+}
+
+export default createStore;
