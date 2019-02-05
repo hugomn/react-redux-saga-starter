@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
+    "outDir": "build",
     "module": "esnext",
     "target": "es5",
     "lib": [
@@ -25,5 +25,9 @@
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "**/*.test.tsx",
+    "**/*.test.ts"
   ]
 }
